@@ -1,0 +1,32 @@
+@import helper._
+
+@(userForm: Form[model.UserFormData])(implicit messages: Messages)
+
+
+@views.html.main("Sign Up"){
+<div>
+    <div class="pull-right"><a href="/getlogin" style="link:white">(Have an Account? Log In)</a></div>
+    <br><br>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                User Details:
+            </div>
+            <div class="panel-body">
+
+                @helper.form(action = routes.ApplicationController.addUser()) {
+                @helper.inputText(userForm("name"),'_label->"Name :",'class->"form-control",'value->"Click to focus...",'placeholder->"abc")
+                @helper.inputPassword(userForm("password"),'_label->"Password :",'class->"form-control",'value->"Click to focus...")
+                @helper.inputText(userForm("email"),'_label->"Email",'class->"form-control",'value->"Click to focus...",'placeholder->"abc@xyz.com")
+                <button type="submit" class="btn btn-primary" value="CREATE AN ACCOUNT">CREATE AN ACCOUNT</button>
+                }
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+}

@@ -1,0 +1,28 @@
+@import helper._
+
+@(userForm: Form[UserData])(implicit flash: Flash,messages: Messages)
+
+
+@views.html.main("login"){
+<div>
+
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">User Details: </div>
+            <div class="panel-body">
+
+                @helper.form(action = routes.ApplicationController.login()) {
+                @helper.inputText(userForm("email"),'_label->"Email :",'class->"form-control",'value->"Click to focus...",'placeholder->"abc@xyz.pqr")
+                @helper.inputPassword(userForm("password"),'_label->"Password :",'class->"form-control",'value->"Click to focus...")
+
+                <button type="submit" class="btn btn-primary" value="SUBMIT">SUBMIT</button>
+                }
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+}

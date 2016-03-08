@@ -1,0 +1,30 @@
+@(userForm: Form[model.UserFormData],users : Seq[model.User])(implicit request: RequestHeader)
+@main("List of users :") {
+
+
+<div class="user-display" >
+ <fieldset>
+  <legend align="center"><h3>Registered Users</h3></legend>
+  <table cellspacing="20">
+   <tr>
+    <th>userid</th>
+    <th>name</th>
+    <th>paassword</th>
+    <th>email</th>
+   </tr>
+   @for(user <- users){
+   <tr>
+    <td>@user.id</td>
+    <td>@user.name</td>
+    <td>@user.password</td>
+    <td>@user.email</td>
+    <td><a href="@routes.ApplicationController.deleteUser(user.id)">delete</a></td>
+   </tr>
+   }
+  </table>
+ </fieldset>
+</div>
+
+}
+
+
